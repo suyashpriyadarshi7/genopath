@@ -1,70 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Under Maintenance</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background-color: #222;
         }
 
-        #typing-effect {
-            font-size: 36px;
+        .maintenance-container {
             text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #fff;
-            animation: typing 2s steps(24) infinite, blink-caret 1s step-end infinite;
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+        h1 {
+            font-size: 36px;
+            font-family: 'Arial', sans-serif;
+            color: #ff5733;
         }
 
-        @keyframes blink-caret {
+        @keyframes glitch {
             0%, 100% {
-                border-color: transparent;
+                text-shadow: -5px 0 #ff5733, 5px 0 #ff5733;
+                transform: skewX(2deg);
+            }
+            20%, 80% {
+                text-shadow: -5px 0 #00f3ff, 5px 0 #00f3ff;
+                transform: skewX(5deg);
+            }
+        }
+
+        p {
+            font-size: 18px;
+            font-family: 'Helvetica', sans-serif;
+            color: #fff;
+            animation: neon 1s ease-in-out infinite;
+        }
+
+        @keyframes neon {
+            0% {
+                color: #00f3ff;
+                text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
             }
             50% {
-                border-color: #fff;
+                color: #fff;
+                text-shadow: none;
+            }
+            100% {
+                color: #00f3ff;
+                text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+            }
+        }
+
+        .logo {
+            margin: 20px;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
             }
         }
     </style>
 </head>
 <body>
-    <div id="typing-effect">Under Maintenance.</div>
-    <div id="typing-effect"><h3>We appreciate your patience.</h3></div>
+    <div class="maintenance-container">
+        <h1>This site is under maintenance</h1>
+        <p>We apologize for the inconvenience. Please check back later.</p>
+    </div>
 
     <script>
-        // JavaScript for the typing effect
-        const textElement = document.getElementById('typing-effect');
-        const text = "";
-        let index = 0;
-
-        function type() {
-            if (index < text.length) {
-                textElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(type, 100); // Adjust typing speed here
-            }
-        }
-
-        type();
+        // Optional JavaScript code can be added here if needed
     </script>
 </body>
 </html>
-
